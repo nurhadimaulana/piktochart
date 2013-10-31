@@ -10,7 +10,12 @@ Gem::Specification.new do |spec|
   spec.summary       = "Gem for Piktochart - summary"
   spec.license       = "MIT"
 
-  spec.files         = ["lib/piktochart.rb"]
+  spec.files         = ["app/controllers/api/v1/users_controller.rb",
+                        "app/controllers/users/invitations_controller.rb",
+                        "lib/piktochart.rb",
+                        "lib/social_media.rb",
+                        "lib/payment.rb"
+                      ]
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
@@ -18,4 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "httparty"
   spec.add_development_dependency "devise"
   spec.add_development_dependency "devise_invitable"
+  spec.add_development_dependency "koala"
+  spec.add_development_dependency "twitter"
+  spec.add_development_dependency "paypal-sdk-merchant"
 end

@@ -34,7 +34,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def invitation
-    result = User.invite!(email: :email_to_invite)
+    user = User.where(email: params[:invitation][:email]).first
+    result = User.invite!({email: params[:invitation][:email_to_invite]}, user)
 
     respond_to do |format|
       format.json{render json: {user: result} }
