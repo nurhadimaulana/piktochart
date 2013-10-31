@@ -7,13 +7,13 @@ module SocialMedia
 	class FacebookPiktochart
 		def self.posting(params)
 			if params[:token] and params[:message]
-				# sample_token = "CAACEdEose0cBAG69VFvHKxcGdpjAxw7EMhDf2N13Fdi8N0ERCb1MZCev7xxJuUNQdbvqMPIPKSh1d7cOKEswTYhxBmX8VmEj3WjIwNZAHQtekAqhHMI64ZAc4XYdL1sqKGMPKrPH8QoZCcwsNrZABZCYaBU5O0PJXlLflFBFmmKcLmZA2J9QG7QAVidnA6JfDYZD"
+				# sample_token = "CAACEdEose0cBAIemZBaR9fG6F3BawBmLLkZCdAssRZCPyb2IO12hZBezpacn2sY9ryebS5qfXsppZC0FZAAmR55mWoI9sshtfw24Kh8XY9VVPV4b1piHBxHSnT2miJnkyGk9ci3l6E6lX7ZC2qThWdNQWdf9mP3yWuPs5FsIgSd9MFpTSTehsbhsBcnsMsyaTgZD"
 				@graph = Koala::Facebook::API.new(params[:token])
 				response = @graph.put_connections("me", "feed", message: params[:message])
 
-				puts id: response["id"], created_time: Time.now
+				return {id: response["id"], created_time: Time.now}
 			else
-				puts "please check your params"
+				return "please check your params"
 			end
 		end
 	end
@@ -35,9 +35,9 @@ module SocialMedia
 
 				response = Twitter.update(params[:message])
 
-				puts id: response["id"], created_time: Time.now
+				return {id: response["id"], created_time: Time.now}
 			else
-				puts "please check your params"
+				return "please check your params"
 			end			
 		end
 	end

@@ -3,14 +3,19 @@ require 'paypal-sdk-merchant'
 module Payment
 
 	class Discount
+
+    # calculate discount sample command
+    # Payment::Discount.calculate(discount: 0.5, price: 100000)
+
 		def self.calculate(params)
 			# 50% => 0.5
 			if params[:discount] and params[:price]
 				discount = params[:price].to_i * params[:discount].to_f
 				price = params[:price].to_f - discount.to_f
-				puts price.to_i
+				
+        return price.to_f
 			else
-				puts "please check your params"
+				return "please check your params"
 			end
 		end
 	end
@@ -90,7 +95,7 @@ module Payment
 
 				# Access Response
 				if @response.success?
-				  puts @response
+				  return @response
 				  # there are :
 					  # @response.Timestamp
 					  # @response.Ack
@@ -99,11 +104,11 @@ module Payment
 					  # @response.Build
 					  # @response.Token
 				else
-				  puts @response.Errors
+				  return @response.Errors
 				end
 
 			else
-				puts "please check your params"
+				return "please check your params"
 			end
 		end
 
@@ -179,8 +184,7 @@ module Payment
 
 				# Access Response
 				if @response.success?
-					puts 'success'
-				  puts @response
+				  return @response
 				  # there are :
 					  # @response.Timestamp
 					  # @response.Ack
@@ -190,10 +194,10 @@ module Payment
 					  # @response.CreateRecurringPaymentsProfileResponseDetails.ProfileID
 					  # @response.CreateRecurringPaymentsProfileResponseDetails.ProfileStatus
 				else
-				  puts @response.Errors
+				  return @response.Errors
 				end
 			else
-				puts 'please check your params'
+				return 'please check your params'
 			end
 		end
 	end

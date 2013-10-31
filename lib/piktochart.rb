@@ -6,9 +6,9 @@ module Piktochart
       if params[:email] and params[:password]
         sign_in_url = "http://lvh.me:3000/api/v1/users/sign_in.json"
         response = HTTParty.post(sign_in_url, body: {user: params})
-        puts response
+        return response
       else
-        puts "please check your params"
+        return "please check your params"
       end
     end
 
@@ -20,13 +20,12 @@ module Piktochart
         unless user['user'].nil?
           response = {token: nil}
 
-          puts "Thanks, you are logged out already"
-          puts response
+          return response
         else
-          puts "please check your email"
+          return "please check your email"
         end
       else
-        puts "please check your params"
+        return "please check your params"
       end
     end
 
@@ -39,13 +38,12 @@ module Piktochart
           invitation_url = "http://lvh.me:3000/api/v1/users/invitation.json"
           response = HTTParty.post(invitation_url, body: {invitation: params})
           
-          puts "success"
-          puts response
+          return response
         else
-          puts "please check your email"
+          return "please check your email"
         end
       else
-        puts "please check your params"
+        return "please check your params"
       end
     end
   end
