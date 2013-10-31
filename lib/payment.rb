@@ -8,12 +8,15 @@ module Payment
     # Payment::Discount.calculate(discount: 0.5, price: 100000)
 
     def self.calculate(params)
-      # 50% => 0.5
       if params[:discount] and params[:price]
-        discount = params[:price].to_i * params[:discount].to_f
-        price = params[:price].to_f - discount.to_f
-        
-        return price.to_f
+        if params[:discount].is_a? Numeric and params[:price].is_a? Numeric
+          discount = (params[:price].to_i / 100) * params[:discount].to_f
+          price = params[:price].to_f - discount.to_f
+          
+          return price.to_f
+        else
+          return "string is not allowed"
+        end
       else
         return "please check your params"
       end
