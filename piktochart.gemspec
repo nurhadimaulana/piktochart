@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.name          = "piktochart"
   spec.version       = "0.0.1"
   spec.authors       = ["Nurhadi Maulana"]
-  spec.email         = ["nurhadimaulana92@gmail.com"]
+  spec.email         = ["hadi@41studio.com"]
   spec.description   = "Gem for Piktochart - description"
   spec.summary       = "Gem for Piktochart - summary"
   spec.license       = "MIT"
