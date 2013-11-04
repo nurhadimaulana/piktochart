@@ -14,7 +14,9 @@ Gem::Specification.new do |spec|
                         "app/controllers/users/invitations_controller.rb",
                         "lib/piktochart.rb",
                         "lib/social_media.rb",
-                        "lib/payment.rb"
+                        "lib/payment.rb",
+                        "lib/generators/piktochart_generator.rb",
+                        "lib/generators/templates/piktochart.rb"
                       ]
   spec.require_paths = ["lib"]
 
