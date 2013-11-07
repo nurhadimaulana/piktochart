@@ -26,7 +26,7 @@ module Piktochart
         user = HTTParty.get(get_user_url, body: {user: params})
 
         unless user['user'].nil?
-          response = {token: nil}
+          response = nil
 
           return response
         else
