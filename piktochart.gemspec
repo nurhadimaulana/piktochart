@@ -13,8 +13,6 @@ Gem::Specification.new do |spec|
   spec.files         = ["app/controllers/api/v1/users_controller.rb",
                         "app/controllers/users/invitations_controller.rb",
                         "lib/piktochart.rb",
-                        "lib/social_media.rb",
-                        "lib/payment.rb",
                         "config/initializers/piktochart.rb"
                       ]
   spec.require_paths = ["lib"]
